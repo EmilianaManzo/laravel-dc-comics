@@ -9,8 +9,9 @@
             <div class="navbar-nav">
 
               <a class="nav-link {{Route::currentRouteName() === 'home' ? 'active' : ''}}" href="{{ route('home') }}">Home</a>
-              <a class="nav-link {{Route::currentRouteName() === 'nuovapagina' ? 'active' : ''}}" href="{{ route('nuovapagina') }}">Nuova Pagina</a>
+              <a class="nav-link {{Route::currentRouteName() === 'contatti' ? 'active' : ''}}" href="{{ route('contatti') }}">Contatti</a>
               <a class="nav-link {{Route::currentRouteName() === 'nuovapagina' ? 'active' : ''}}" href="{{ route('comics.index') }}">Comics</a>
+              <a class="nav-link {{Route::currentRouteName() === 'comics.create' ? 'active' : ''}}" href="{{ route('comics.create') }}">New Comics</a>
 
             </div>
           </div>

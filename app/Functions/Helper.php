@@ -20,4 +20,16 @@ class Helper{
 
         return $slug;
     }
+
+    public static function dannatoArray($myArray){
+        $string = '';
+        foreach($myArray as $item){
+            if(!$string == ''){
+                $string .= ' , ' . $item;
+            }else{
+                $string = $item;
+            }
+        }
+        return $string;
+    }
 }

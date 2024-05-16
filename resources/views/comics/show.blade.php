@@ -20,6 +20,7 @@
                   <p class="card-text">Attori: {{$comic->artists}}</p>
                   <p class="card-text">Scrittori: {{$comic->writers}}</p>
 
+                <a href="{{route('comics.index')}}" class="btn btn-success ">Torna ai Comics</a>
 
         </div>
     </div>

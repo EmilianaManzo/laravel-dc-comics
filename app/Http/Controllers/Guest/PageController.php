@@ -3,15 +3,19 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comic;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function index(){
-        return view('home');
+
+        $num_comics = Comic::count();
+
+        return view('home', compact('num_comics'));
     }
 
-    public function nuovaPagina(){
-        return view('nuova-pagina');
+    public function contatti(){
+        return view('contatti');
     }
 }
