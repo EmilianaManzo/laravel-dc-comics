@@ -25,11 +25,26 @@ class ComicsTableSeeder extends Seeder
             $new_comic->series = $comic['series'];
             $new_comic->sale_date = $comic['sale_date'];
             $new_comic->type = $comic['type'];
-            // $new_comic->artists = $comic['artists'] ;
-            // $new_comic->writers = $comic['writers'] ;
-            // $new_comic-> save();
+            $new_comic->artists = $this->dannatoArray($comic['artists']) ;
+            $new_comic->writers = $this->dannatoArray($comic['writers']);
+            $new_comic-> save();
             // dump ($new_comic);
         }
 
     }
+
+
+
+        private function dannatoArray($myArray){
+            $string = '';
+            foreach($myArray as $item){
+                if(!$string == ''){
+                    $string .= ' , ' . $item;
+                }else{
+                    $string = $item;
+                }
+            }
+            return $string;
+        }
 }
+
