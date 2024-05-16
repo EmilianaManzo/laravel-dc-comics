@@ -12,7 +12,7 @@
               <h5 class="card-title">{{$comic->title}}</h5>
               <p class="card-text">{{$comic->series}}</p>
               <p class="card-text">{{$comic->price}}</p>
-              <a href="{{route('comics.show'), $comic}}" class="btn btn-primary">Dettagli</a>
+              <a href="{{route('comics.show', $comic)}}" class="btn btn-primary">Dettagli</a>
             </div>
           </div>
         </div>
