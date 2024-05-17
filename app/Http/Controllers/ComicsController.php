@@ -32,6 +32,10 @@ class ComicsController extends Controller
     {
         $form_data = $request->all();
 
+        // questo serve per conformare i dati di inserimento, in modo da farci restituire un array
+        $artist_arr = explode(',', $form_data['artists'] );
+        $writers_arr = explode(',', $form_data['writers'] );
+
 
         $new_comic=  new Comic();
 
@@ -43,8 +47,8 @@ class ComicsController extends Controller
         $new_comic->series = $form_data['series'];
         $new_comic->sale_date = $form_data['sale_date'];
         $new_comic->type = $form_data['type'];
-        $new_comic->artists = $form_data['artists'] ;
-        $new_comic->writers =$form_data['writers'];
+        $new_comic->artists = $artist_arr;
+        $new_comic->writers = $writers_arr;
         $new_comic-> save();
 
         dump($new_comic);

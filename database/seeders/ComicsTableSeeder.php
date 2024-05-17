@@ -25,8 +25,13 @@ class ComicsTableSeeder extends Seeder
             $new_comic->series = $comic['series'];
             $new_comic->sale_date = $comic['sale_date'];
             $new_comic->type = $comic['type'];
-            $new_comic->artists = Helper::dannatoArray($comic['artists']) ;
-            $new_comic->writers = Helper::dannatoArray($comic['writers']);
+
+            // per passare gli array qui gli passo implode
+            // implode unisce gli elementi dell'array con una stringa e un carattere che scegliamo noi. quindi doppio parametro : 1. carattere , 2. passo il mio array
+            // è come il join di js
+
+            $new_comic->artists = implode('|' ,$comic['artists']) ;
+            $new_comic->writers =  implode('|' ,$comic['writers']) ;
             $new_comic-> save();
             // dump ($new_comic);
         }

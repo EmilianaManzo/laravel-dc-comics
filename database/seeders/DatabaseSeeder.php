@@ -12,6 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        ComicsTableSeeder::class;
+       $this->call(ComicsTableSeeder::class);
     }
 }
