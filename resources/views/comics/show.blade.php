@@ -20,8 +20,8 @@
 
                    {{-- apro il tag php per fare explode che toglie il carattere che vogliamo e ci restituisce un array, è come lo split di js   --}}
                   @php
-                      $artist_arr = explode('|',$comic->artists );
-                      $writers_arr = explode('|',$comic->writers );
+                      $artist_arr = explode(',',$comic->artists );
+                      $writers_arr = explode(',',$comic->writers );
                   @endphp
                   <p class="card-text">Attori:
                     <ul>
