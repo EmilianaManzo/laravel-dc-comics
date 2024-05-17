@@ -47,14 +47,14 @@ class ComicsController extends Controller
         // $new_comic->writers = $form_data['writers'];
 
         // in form_data non è presente lo slug, per questo devo prima crearlo
-        $form_data['slug'] = Helper::createSlug($new_comic->title, new Comic()) ;
+        $form_data['slug'] = Helper::createSlug($form_data['title'], new Comic()) ;
 
         $new_comic->fill($form_data);
 
+        // dd($new_comic);
+
         $new_comic-> save();
 
-
-        dump($new_comic);
 
         return redirect()->route('comics.show', $new_comic);
 
@@ -72,24 +72,38 @@ class ComicsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Comic $comic)
     {
-        //
+
+        return view('comics.edit', compact('comic'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $form_data = $request->all();
+
+        if($form_data['title'] === $comic->title){
+            $form_data['slug'] = $comic->slug;
+        }else{
+            $form_data['slug'] = Helper::createSlug($form_data['title'], new Comic()) ;
+        }
+
+        $comic->update($form_data);
+
+        return redirect()->route('comics.show',$comic);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        // il with ci fa uscire il banner di avvenuta cancellazione solo per un determinato momento
+        return redirect()->route('comics.index')->with('deleted', 'Il comic'. ' ' . $comic->title. ' ' .'è stato cancellato con successo!');
     }
 }

@@ -4,7 +4,7 @@
 
 <div class="container mb-5 ">
     <div class="row">
-        <div class="col"><h1 class="mb-5">Inserisci nuovo Comic</h1></div>
+        <div class="col"><h1 class="mb-3">Inserisci nuovo Comic</h1></div>
     </div>
     <div class="row">
         <div class="col">

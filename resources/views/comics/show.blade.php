@@ -2,10 +2,12 @@
 
 @section('content')
 
-<div class="container mb-5 ">
+<div class="container mb-1 ">
+
     <div class="row">
         <div class="col"><h1 class="mb-5">Dettagli</h1></div>
     </div>
+
     <div class="row">
         <div class="col">
             <img src="{{$comic->thumb}}" class="card-img-top" alt="{{$comic->title}}">
@@ -37,8 +39,13 @@
                         @endforeach
                     </ul>
                   </p>
+                <div class="d-flex mb-3">
+                    <a href="{{route('comics.edit', $comic)}}" class="btn btn-warning mx-2"><i class="fa-solid fa-pencil"></i></a>
+                    @include('partials.formdelete')
+                    <a href="{{route('comics.index')}}" class="btn btn-success mx-2 ">Torna ai Comics</a>
 
-                <a href="{{route('comics.index')}}" class="btn btn-success ">Torna ai Comics</a>
+                </div>
+
 
         </div>
     </div>
