@@ -17,3 +17,9 @@ Per la navigazione
 - form nuovo prodotto (GET create) (ricordarsi il token @csrf)
 - rotta per salvare i dati provenienti dal form create (POST store)
 - una volta salvati i dati reindirizzare alla show (return redirect()->route('mia_tabella.show', $new_elemento);)
+
+
+
+Come detto in classe oggi terminate la CRUD Comics aggiungendo la validazione sia per il create che per l’edit.
+BONUS
+Create una sola view per i form di create ed edit

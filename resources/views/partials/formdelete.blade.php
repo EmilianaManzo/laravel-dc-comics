@@ -1,5 +1,9 @@
-<form action="{{route('comics.destroy',$comic)}}" method="post" class="d-inline-block "
-onsubmit="return confirm('Sei securo di voler eliminare {{$comic->title}} ?')">
+<form
+    class="d-inline-block "
+  action="{{route('comics.destroy', $comic)}}"
+  method="post"
+  onclick=" e.preventDefault()"
+  onsubmit="return confirm('Sei securo di voler eliminare {{$comic->title}} ?')">
     @csrf
     @method('DELETE')
 
