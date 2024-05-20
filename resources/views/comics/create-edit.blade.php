@@ -5,7 +5,7 @@
 
 <div class="container mb-5 ">
     <div class="row">
-        <div class="col"><h1 class="mb-5">Stai modificando: {{$comic->title}}</h1></div>
+        <div class="col"><h1 class="mb-5">{{$title .' '.$comic?->title}}</h1></div>
     </div>
 
     @if ($errors->any())
@@ -21,9 +21,9 @@
 
     <div class="row">
         <div class="col">
-            <form action="{{route('comics.update', $comic)}}" method="post">
+            <form action="{{$route}}" method="post">
                @csrf
-               @method('PUT')
+               @method($method)
                 <div class="mb-3">
                     <label for="title" class="form-label ">Titolo</label>
                     <input
@@ -31,7 +31,7 @@
                       name="title"
                       id="title"
                       class="form-control @error('title') is-invalid @enderror"
-                      value="{{old('title',$comic->title)}}">
+                      value="{{old('title',$comic?->title)}}">
                       @error('title')
                           <small class="text-danger">
                             {{$message}}
@@ -41,7 +41,7 @@
 
                 <div class="mb-3">
                     <label for="thumb" class="form-label ">Immagine</label>
-                    <input type="text" name="thumb" id="thumb" class="form-control" value="{{old('thumb',$comic->thumb)}}">
+                    <input type="text" name="thumb" id="thumb" class="form-control" value="{{old('thumb',$comic?->thumb)}}">
                 </div>
 
                 <div class="mb-3">
@@ -51,7 +51,7 @@
                       name="price"
                       id="price"
                       class="form-control @error('price') is-invalid @enderror"
-                      value="{{old('price',$comic->price)}}">
+                      value="{{old('price',$comic?->price)}}">
                       @error('price')
                       <small class="text-danger">
                         {{$message}}
@@ -66,7 +66,7 @@
                       name="series"
                       id="series"
                       class="form-control @error('series') is-invalid @enderror"
-                      value="{{old('series',$comic->series)}}">
+                      value="{{old('series',$comic?->series)}}">
                       @error('series')
                         <small class="text-danger">
                         {{$message}}
@@ -80,7 +80,7 @@
                     name="sale_date"
                     id="sale_date"
                     class="form-control @error('sale_date') is-invalid @enderror"
-                    value="{{old('sale_date',$comic->sale_date)}}">
+                    value="{{old('sale_date',$comic?->sale_date)}}">
                     @error('sale_date')
                     <small class="text-danger">
                       {{$message}}
@@ -95,7 +95,7 @@
                       name="type"
                       id="type"
                       class="form-control @error('sale_date') is-invalid @enderror"
-                      value="{{old('type',$comic->type)}}">
+                      value="{{old('type',$comic?->type)}}">
                       @error('type')
                         <small class="text-danger">
                         {{$message}}
@@ -110,17 +110,17 @@
                       name="artists"
                       id="artists"
                       class="form-control"
-                      value="{{old('artists',$comic->artists)}}">
+                      value="{{old('artists',$comic?->artists)}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="c" class="form-label ">Scrittori</label>
-                    <input type="text" name="writers" id="writers" class="form-control" value="{{old('writers',$comic->writers)}}">
+                    <input type="text" name="writers" id="writers" class="form-control" value="{{old('writers',$comic?->writers)}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="description" class="form-label ">Descrizione</label>
-                    <textarea name="description" id="description" class="form-control" value="">{{old('description',$comic->description)}}</textarea>
+                    <textarea name="description" id="description" class="form-control" value="">{{old('description',$comic?->description)}}</textarea>
                 </div>
 
             </div>
